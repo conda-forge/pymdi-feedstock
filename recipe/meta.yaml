@@ -1,7 +1,7 @@
 {% set name = "pymdi" %}
-{% set version = "0.6.5" %}
+{% set version = "1.0.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "d1e10d939adef108889bbca9fb45cadfb355d6438361e1b4361f6ac8eee5094e" %}
+{% set hash_value = "728a330ff22e9477f77b74af87f41a50744b1296c3f1838384914944b4b0d906" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<10]
 
 requirements:
