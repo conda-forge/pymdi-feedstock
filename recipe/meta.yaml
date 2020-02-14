@@ -1,7 +1,7 @@
 {% set name = "pymdi" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "728a330ff22e9477f77b74af87f41a50744b1296c3f1838384914944b4b0d906" %}
+{% set hash_value = "7d2f189b8a150d5f8ffa685a4b9c0751cd37d2fbbe9d777823755fa52fe3a114" %}
 
 package:
   name: {{ name|lower }}
