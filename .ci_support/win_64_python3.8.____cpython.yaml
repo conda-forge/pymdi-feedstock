@@ -10,5 +10,7 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - 3.8.* *_cpython
+target_platform:
+- win-64
 vc:
 - '14'
