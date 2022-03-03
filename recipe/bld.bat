@@ -17,6 +17,5 @@ cmake -G Ninja ^
     -DCMAKE_INCLUDE_PATH:PATH="%LIBRARY_INC%" ^
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ^
     -Dpython_package=ON ^
-    -Dlanguage=Python ^
     ..
 ninja install
