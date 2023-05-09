@@ -1,11 +1,11 @@
-About pymdi
-===========
+About pymdi-feedstock
+=====================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymdi-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/MolSSI/MDI_Library
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pymdi-feedstock/blob/main/LICENSE.txt)
 
 Summary: A library that enables code interoperability via the MolSSI Driver Interface.
 
