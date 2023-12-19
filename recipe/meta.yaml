@@ -1,5 +1,5 @@
 {% set name = "pymdi" %}
-{% set version = "1.4.24" %}
+{% set version = "1.4.25" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/MolSSI/MDI_Library/archive/v{{ version }}.tar.gz
-  sha256: 81063c97e8c5f5b6a97cc7d5e6a5f5a8310be61bb67b629b958a55dc9e7f3095
+  sha256: 5a31cd550ba2eb9c89d19ea78db68244328000ab313b3c32f57c74f5c778f110
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win and vc<10]
 
 requirements:
