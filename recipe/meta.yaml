@@ -15,17 +15,20 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - cmake >=3.13
     - make
     - ninja
+    - python {{ python }}
+    - {{ mpi }}
   host:
-    - python
+    - python {{ python }}
+    - {{ mpi }}
   run:
-    - python
+    - python {{ python }}
+    - {{ mpi }}
 
 test:
   imports:
