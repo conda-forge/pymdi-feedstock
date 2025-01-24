@@ -3,16 +3,16 @@
 set -ex
 
 # Configure step
-cmake -Bbuild \
+cmake -Bbuild -GNinja \
     ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DPython_EXECUTABLE=$(which python) \
     -DBUILD_SHARED_LIBS=ON \
     -DMDI_Fortran=OFF \
     -DMDI_Python=ON \
     -DMDI_CXX=OFF \
-    -DMDI_Python_PACKAGE=ON \
-    -DPython_EXECUTABLE=$(which python)
+    -DMDI_Python_PACKAGE=ON
 
 # Build step
 cmake --build build -j${CPU_COUNT}
