@@ -8,8 +8,9 @@ cd build
 cmake -Bbuild \
     ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DPython_EXECUTABLE=${PYTHON} \
+    -DBUILD_SHARED_LIBS=ON \
     -DMDI_Fortran=OFF \
     -DMDI_Python=ON \
     -DMDI_CXX=ON \
