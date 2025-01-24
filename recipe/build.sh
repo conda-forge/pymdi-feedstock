@@ -13,9 +13,6 @@ cmake -Bbuild \
     -DMDI_CXX=OFF \
     -DMDI_Python_PACKAGE=ON \
     -DPython_EXECUTABLE=$(which python)
-#    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-#    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))")
-#    -DCMAKE_INSTALL_LIBDIR=lib \
 
 # Build step
 cmake --build build -j${CPU_COUNT}
