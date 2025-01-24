@@ -1,14 +1,19 @@
-#!/bin/bash
-mkdir build
-cd build
+#/usr/bin/env bash
+
+set -ex
+
 # Configure step
-cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_INSTALL_LIBDIR=lib \
-    -Dpython_package=ON \
-    -Dlanguage=Python \
-    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))") \
-    ..
+cmake -Bbuild -GNinja \
+    ${CMAKE_ARGS} \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+    -DPython_EXECUTABLE=${PYTHON} \
+    -DBUILD_SHARED_LIBS=ON \
+    -DMDI_Fortran=OFF \
+    -DMDI_Python=ON \
+    -DMDI_CXX=OFF \
+    -DMDI_Python_PACKAGE=ON
+
 # Build step
-make -j${CPU_COUNT}
-make install
+cmake --build build -j${CPU_COUNT}
+cmake --install build
