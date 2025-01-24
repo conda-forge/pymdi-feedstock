@@ -13,7 +13,8 @@ cmake -Bbuild \
     -DMDI_Python=ON \
     -DMDI_CXX=OFF \
     -DMDI_Python_PACKAGE=ON \
-    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))")
+    -DPython_EXECUTABLE=$(which python)
+#    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))")
 #    -DCMAKE_INSTALL_LIBDIR=lib \
 
 # Build step
