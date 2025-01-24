@@ -1,14 +1,21 @@
-#!/bin/bash
+#/usr/bin/env bash
+
+set -ex
+
 mkdir build
 cd build
 # Configure step
-cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release \
+cmake -Bbuild \
+    ${CMAKE_ARGS} \
+    -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_INSTALL_LIBDIR=lib \
-    -Dpython_package=ON \
-    -Dlanguage=Python \
-    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))") \
-    ..
+    -DMDI_Fortran=OFF \
+    -DMDI_Python=ON \
+    -DMDI_CXX=ON \
+    -DMDI_Python_PACKAGE=ON
+    -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))")
+
 # Build step
-make -j${CPU_COUNT}
-make install
+cmake --build build -j${CPU_COUNT}
+cmake --install build
