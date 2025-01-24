@@ -2,8 +2,6 @@
 
 set -ex
 
-mkdir build
-cd build
 # Configure step
 cmake -Bbuild \
     ${CMAKE_ARGS} \
