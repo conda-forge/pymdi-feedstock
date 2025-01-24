@@ -13,7 +13,7 @@ cmake -Bbuild \
     -DMDI_Fortran=OFF \
     -DMDI_Python=ON \
     -DMDI_CXX=OFF \
-    -DMDI_Python_PACKAGE=ON
+    -DMDI_Python_PACKAGE=ON \
     -Dpython_version=$(python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))")
 
 # Build step
