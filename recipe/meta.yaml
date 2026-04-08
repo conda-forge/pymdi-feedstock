@@ -12,6 +12,12 @@ source:
 build:
   number: 0
   skip: true  # [win and vc<10]
+  {% if mpi != 'nompi' %}
+  {% set mpi_prefix = "mpi_" + mpi %}
+  {% else %}
+  {% set mpi_prefix = "nompi" %}
+  {% endif %}
+  string: py{{ CONDA_PY }}_h{{ PKG_HASH }}_{{ mpi_prefix }}_{{ PKG_BUILDNUM }}
 
 requirements:
   build:
@@ -24,8 +30,10 @@ requirements:
     - ninja
   host:
     - python
+    - {{ mpi }}  # [mpi != 'nompi']
   run:
     - python
+    - {{ mpi }}  # [mpi != 'nompi']
 
 test:
   imports:

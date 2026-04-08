@@ -11,12 +11,21 @@ set CXXFLAGS=%CXXFLAGS:-GL=%
 set CFLAGS=%CFLAGS:-GL=%
 )
 
+if "%mpi%" == "nompi" (
+    set MDI_MPI=OFF
+) else (
+    set MDI_MPI=ON
+)
+
 cmake -G Ninja ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INCLUDE_PATH:PATH="%LIBRARY_INC%" ^
     -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON ^
-    -Dpython_package=ON ^
-    -Dlanguage=Python ^
+    -DMDI_Python_PACKAGE=ON ^
+    -DMDI_CXX=ON ^
+    -DMDI_Fortran=OFF ^
+    -DMDI_Python=ON ^
+    -DMDI_USE_MPI=%MDI_MPI% ^
     ..
 ninja install
