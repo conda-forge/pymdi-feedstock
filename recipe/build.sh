@@ -9,7 +9,7 @@ else
 fi
 
 # Configure step
-cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release \
+cmake ${CMAKE_ARGS} -GNinja -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DMDI_Python_PACKAGE=ON \
@@ -20,5 +20,5 @@ cmake ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Release \
     -DMDI_USE_MPI=${MDI_MPI} \
     ..
 # Build step
-make -j${CPU_COUNT}
-make install
+ninja
+ninja install

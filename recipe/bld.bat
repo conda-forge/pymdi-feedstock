@@ -17,7 +17,9 @@ if "%mpi%" == "nompi" (
     set MDI_MPI=ON
 )
 
-cmake -G Ninja ^
+for /f "usebackq" %%v in (`python -c "import sys; print(str(sys.version_info[0])+'.'+str(sys.version_info[1])+'.'+str(sys.version_info[2]))"`) do set PYTHON_VERSION=%%v
+
+cmake -G Ninja %CMAKE_ARGS% ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_INCLUDE_PATH:PATH="%LIBRARY_INC%" ^
@@ -26,6 +28,7 @@ cmake -G Ninja ^
     -DMDI_CXX=ON ^
     -DMDI_Fortran=OFF ^
     -DMDI_Python=ON ^
+    -DMDI_Python_VERSION=%PYTHON_VERSION% ^
     -DMDI_USE_MPI=%MDI_MPI% ^
     ..
 ninja install
