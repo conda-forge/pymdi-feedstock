@@ -11,7 +11,7 @@ cxx_compiler:
 mpi:
 - nompi
 mpich:
-- '4'
+- '5'
 openmpi:
 - '4'
 pin_run_as_build:
