@@ -23,7 +23,7 @@ macos_machine:
 mpi:
 - mpich
 mpich:
-- '4'
+- '5'
 openmpi:
 - '4'
 pin_run_as_build:
