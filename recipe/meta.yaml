@@ -10,7 +10,7 @@ source:
   sha256: fc2fe29c0268750d58faccfe6bebe0971a09354b372aef42013decda784c7eaa
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and mpi != 'nompi']
   {% if mpi != 'nompi' %}
   {% set mpi_prefix = "mpi_" + mpi %}
